@@ -6,8 +6,8 @@ README 讲怎么用,这里讲为什么这么做 —— 绝大部分是踩坑换�
 
 ### 为什么每次清理 app/build
 
-`packageDebug` 阶段出现过 **3 次** `OutOfMemoryError`。已确认 31G 物理内存 / 8G 堆
-并不不足,是**增量打包的偶发内存峰值**(连续两次增量构建可成功,非必然触发)。
+`packageDebug` 阶段出现过 **3 次** `OutOfMemoryError`。已确认不是内存总量不足,
+而是**增量打包的偶发内存峰值**(连续两次增量构建可成功,非必然触发)。
 每次清 `app/build` 兜底,代价约多 20 秒。
 
 ### 为什么有预检
@@ -219,7 +219,7 @@ App 同一时刻只播一路流,所以它等于该路的实际速率。
 - 滑动亮度只改 `window.attributes.screenBrightness`,那是**窗口级覆盖**:系统亮度条不会被
   它影响,且最终亮度 = 系统亮度 × 窗口系数,永远对不上
 
-代价是两者都落在系统整数级(该机音量 0..15 共 16 档,亮度 0..255),换来的正是两边永远一致。
+代价是两者都落在系统整数级(音量与亮度各有自己的档位),换来的正是两边永远一致。
 手势内部用浮点意图保留细碎位移,落回整数级时才取整;每次手势都从系统当前值重新起算,
 中途按过音量键也不会失步。
 
@@ -274,7 +274,7 @@ VLC 走 **native stderr**(tag `VLC-std`),必须开启重定向才能看到:
 
 ```bash
 # log. 命名空间的属性,普通 shell 无权设置,需要 root 设备或 adb root(重启失效)。
-# 实测:测试机无 su,执行本命令报 Failed to set property,因此本机看不到 VLC-std 输出。
+# 无 root 的机器上看不到 VLC-std 输出(本项目的实测环境就是如此,见 AGENTS.md)。
 adb shell setprop log.redirect-stdio true
 adb logcat -b all -c
 adb logcat -d -b all | grep -E 'VLC-std|unknown option|FATAL|can.t create LibVLC'
@@ -282,12 +282,12 @@ adb logcat -d -b all | grep -E 'VLC-std|unknown option|FATAL|can.t create LibVLC
 
 ### 验收
 
-单次测量会骗人,**必须 ≥5 次且包含「刚安装后首次启动」**(ProfileInstaller 编译期是最恶劣场景)。
-判据:解码器 5/5、underrun ≈ 0、首条 Stats `Render ≥ 85`。
+单次测量会骗人,**必须 ≥5 次且包含「刚安装后首次启动」** —— ProfileInstaller 的编译期
+是最恶劣场景,首启数值必然比稳定态差。
 
-**注意**:`adb` 注入的触摸会被 MIUI 拦在 RecyclerView 区域(列表既不响应点击也不滚动),
-但 topBar 的按钮能收到,手指操作完全正常。所以涉及频道列表的验证**必须手动做**,
-任何依赖 `input tap` 的自动化结论都是假失败。
+**`adb` 注入的触摸可能被系统拦在 RecyclerView 区域**(列表既不响应点击也不滚动),
+此时涉及频道列表的验证**必须手动做**,依赖 `input tap` 的自动化结论是假失败。
+具体的判据阈值与本机的实测数据见 `AGENTS.md`。
 
 ### 已知噪声(不是缺陷)
 
