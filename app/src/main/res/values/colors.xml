@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+<color name="bg_root">#F7F7F9</color>
+<color name="bg_surface">#FFFFFF</color>
+<color name="bg_elevated">#EEEFF2</color>
+<color name="bg_hover">#E3E4E8</color>
+<color name="brand_primary">#1B1B1F</color>
+<color name="brand_primary_dim">#45454D</color>
+<color name="brand_accent">#D81B49</color>
+<color name="text_primary">#1B1B1F</color>
+<color name="text_secondary">#62626B</color>
+<color name="text_disabled">#898992</color>
+<color name="live_red">#D62839</color>
+<color name="divider">#E3E4E8</color>
+<color name="scrim">#DBF7F7F9</color>
+<color name="player_text">#F5F5F7</color>
+<color name="player_muted">#C7C7CC</color>
+<color name="player_button_bg">#F5F5F7</color>
+<color name="player_button_text">#09090B</color>
+<color name="player_secondary_bg">#303035</color>
+<color name="player_accent">#FF5C7D</color>
+<color name="player_error">#FF6257</color>
+<color name="launcher_bg">#09090B</color>
+</resources>

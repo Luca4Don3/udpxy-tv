@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="bg_root">#09090B</color>
+    <color name="bg_surface">#171719</color>
+    <color name="bg_elevated">#232326</color>
+    <color name="bg_hover">#303035</color>
+
+    <color name="brand_primary">#F5F5F7</color>
+    <color name="brand_primary_dim">#C9C9CE</color>
+    <color name="brand_accent">#FF375F</color>
+
+    <color name="text_primary">#F5F5F7</color>
+    <color name="text_secondary">#A1A1A8</color>
+    <color name="text_disabled">#707078</color>
+
+    <color name="live_red">#FF453A</color>
+    <color name="divider">#303035</color>
+    <color name="scrim">#DB09090B</color>
+</resources>

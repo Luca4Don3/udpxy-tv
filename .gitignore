@@ -1,0 +1,43 @@
+# ---- 构建产物 ----
+build/
+app/build/
+.gradle/
+.kotlin/
+*.apk
+*.aar
+*.jar
+*.hprof
+
+# ---- 本地/构建机配置（含绝对路径）----
+local.properties
+
+# ---- 含隐私信息，勿公开 ----
+HANDOFF.md
+AGENTS.md
+
+# ---- 备份与残留 ----
+.bak/
+*.bak
+*.bak[0-9]*
+*.broken-*
+*.orig
+*.rej
+*.tmp
+
+# ---- IDE ----
+.idea/
+*.iml
+.vscode/
+captures/
+
+# ---- 系统 ----
+.DS_Store
+Thumbs.db
+
+# ---- 日志 ----
+*.log
+
+
+# ---- 本地工具（含真实值匹配模式）----
+prepare-oss.py
+oss/
