@@ -105,7 +105,7 @@ gradle :app:testDebugUnitTest
 
 几个不直观、但会影响正确性的决定,详见 [docs/INTERNALS.md](docs/INTERNALS.md):
 
-- libvlc 的音量基线是 **256**(0dB),不是 200 也不是 100
+- libvlc 的音量基线是 **256**(0dB)
 - 缓存选项必须**先设 media 级、再开硬解**,顺序反了会被覆盖
 - 退出释放放后台线程,否则主线程会卡住约 3 秒
 - 码率读 `TrafficStats`,不用会 SIGSEGV 的 `Media.getStats()`

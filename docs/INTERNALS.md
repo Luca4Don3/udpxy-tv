@@ -225,7 +225,7 @@ App 同一时刻只播一路流,所以它等于该路的实际速率。
 
 亮度下限留 1 级而不是 0:全黑之后看不见 HUD,也就没法再滑回来。
 
-### libvlc 侧的基线是 256,不是 200 也不是 100
+### libvlc 侧的基线是 256
 
 `MediaPlayer.setVolume(int)` 的 javadoc 没写范围,底层 `libvlc_audio_set_volume()` 按
 VLC 3.x 的 `include/vlc_aout.h` 换算:
