@@ -70,7 +70,7 @@ class MainActivity : AppCompatActivity() {
 
     private fun play(ch: Channel) {
         if (StreamUrlBuilder.normalizeGateway(store.gateway) == null) {
-            toast("请先在设置里填写本局域网的 iKuai 地址和 udpxy 端口")
+            toast("请先在设置里填写本局域网的 udpxy 网关地址和端口")
             startActivity(Intent(this, SettingsActivity::class.java))
             return
         }

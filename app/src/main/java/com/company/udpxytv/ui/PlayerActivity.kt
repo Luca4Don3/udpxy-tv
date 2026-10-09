@@ -277,7 +277,7 @@ class PlayerActivity : AppCompatActivity() {
                 1200L * retryCount
             )
         } else {
-            showError("无法播放：$msg\n请确认手机与 iKuai 在同一网段，且 udpxy 已开启")
+            showError("无法播放：$msg\n请确认手机与 udpxy 网关在同一网段，且 udpxy 已开启")
         }
     }
 

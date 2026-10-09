@@ -144,7 +144,7 @@ class ChannelStore(context: Context) {
         private const val KEY_UDP_PATH = "udp_path"
         private const val KEY_CHANNELS = "channels"
 
-        /** 不预设任何网关地址：不同局域网的 iKuai IP 与 udpxy 端口都不同，由用户填写。 */
+        /** 不预设任何网关地址：不同局域网的网关 IP 与 udpxy 端口都不同，由用户填写。 */
         const val DEFAULT_GATEWAY = ""
         const val DEFAULT_UDP_PATH = "/udp/"
     }

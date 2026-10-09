@@ -10,8 +10,8 @@ android {
         applicationId = "com.company.udpxytv"
         minSdk = 24
         targetSdk = 34
-        versionCode = 245
-        versionName = "2.12.1"
+        versionCode = 246
+        versionName = "2.12.2"
         // 不设 abiFilters：libvlc-all 含全架构，保持完整以确保兼容性
     }
 

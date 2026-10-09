@@ -8,7 +8,7 @@ package com.company.udpxytv.data
  *
  * 网关写法不限，以下都能识别：
  *   <internal_ip>:9999 / http://<internal_ip>:9999 / <internal_ip>
- *   ikuai.lan:9999 / ikuai.lan / http://ikuai.lan/
+ *   router.lan:9999 / router.lan / http://router.lan/
  * 端口省略按 80 处理。
  */
 object StreamUrlBuilder {

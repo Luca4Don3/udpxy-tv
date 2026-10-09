@@ -94,12 +94,12 @@ class StreamUrlBuilderTest {
 
     @Test
     fun 网关域名加端口() {
-        assertEquals("http://ikuai.lan:9999", StreamUrlBuilder.normalizeGateway("ikuai.lan:9999"))
+        assertEquals("http://router.lan:9999", StreamUrlBuilder.normalizeGateway("router.lan:9999"))
     }
 
     @Test
     fun 网关带协议带斜杠() {
-        assertEquals("http://ikuai.lan:80", StreamUrlBuilder.normalizeGateway("http://ikuai.lan/"))
+        assertEquals("http://router.lan:80", StreamUrlBuilder.normalizeGateway("http://router.lan/"))
     }
 
     /** 写了越界端口应当判无效，而不是静默退回 80——那是另一个网关的端口 */
@@ -115,7 +115,7 @@ class StreamUrlBuilderTest {
 
     @Test
     fun 网关域名端口越界判无效() {
-        assertNull(StreamUrlBuilder.normalizeGateway("ikuai.lan:99999"))
+        assertNull(StreamUrlBuilder.normalizeGateway("router.lan:99999"))
     }
 
     @Test
